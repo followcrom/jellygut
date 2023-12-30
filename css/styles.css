@@ -1,0 +1,68 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+#calendar-app {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+#calendar-container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 days for a week */
+    gap: 5px;
+    text-align: center;
+}
+
+#buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+#month-year {
+    text-align: center;
+}
+
+.day {
+    border: 1px solid #ddd;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin: 2px 0;
+}
+
+.checkbox-label {
+    margin-right: 5px;
+    font-size: 0.8em; /* Smaller font size for labels */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    #calendar-container {
+        grid-template-columns: repeat(7, 1fr); /* Adjust the number of columns for smaller screens */
+    }
+
+    .day {
+        padding: 3px;
+    }
+
+    .checkbox-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .checkbox-label {
+        margin-bottom: 2px;
+    }
+}
