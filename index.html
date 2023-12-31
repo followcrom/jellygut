@@ -6,10 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dynamic Calendar</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="manifest" href="/manifest.json">
+    <script type="module" src="js/firebase-init.js"></script>
+    <!-- <script type="module" src="js/test-connection.js"></script> -->
 </head>
 
 <body>
-    <div id="calendar-app">
+
+    <button id="github-login">Login with GitHub</button>
+    <button id="sign-out" style="display: none;">Sign Out</button>
+    <div id="error-message" style="color: red;"></div>
+
+    <div id="calendar-app" style="display: none;">
         <div id="month-buttons-container">
             <button id="prev-month">Previous</button>
             <button id="next-month">Next</button>
@@ -17,7 +25,9 @@
         <h1 id="month-year"></h1>
         <div id="calendar-container"></div>
     </div>
-    <script src="js/script.js"></script>
+
+    <script type="module" src="js/script.js"></script>
+
 </body>
 
 </html>

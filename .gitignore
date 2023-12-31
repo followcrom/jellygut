@@ -1,0 +1,11 @@
+# Ignore Visual Studio Code workspace file
+JellyGut.code-workspace
+
+# Ignore .env file
+.env
+
+# Ignore docs folder
+docs/
+
+# Ignore test-connection.js
+js/test-connection.js
