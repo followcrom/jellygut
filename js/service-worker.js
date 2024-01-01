@@ -7,7 +7,6 @@ const urlsToCache = [
 ];
 
 self.addEventListener("install", (event) => {
-  // Perform install steps
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       console.log("Opened cache");
@@ -19,7 +18,6 @@ self.addEventListener("install", (event) => {
 self.addEventListener("fetch", (event) => {
   event.respondWith(
     caches.match(event.request).then((response) => {
-      // Cache hit - return response
       if (response) {
         return response;
       }

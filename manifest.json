@@ -1,10 +1,6 @@
 {
   "short_name": "Jelly Gut",
   "name": "Jelly Gut 2024",
-  "categories": [
-    "diary",
-    "blog"
-  ],
   "icons": [
     {
       "src": "imgs/favicon.png",
