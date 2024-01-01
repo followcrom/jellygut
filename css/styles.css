@@ -4,35 +4,53 @@ body {
     font-family: Arial, sans-serif;
 }
 
+#banner {
+    font-family: 'Exo 2', sans-serif;
+    background-color: #0f4c81;
+    color: white; 
+    text-align: center;
+    padding: 10px;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
 #github-login {
     background-color: #24292e;
     color: white;
     border: none;
+    border-radius: 15px;
     padding: 10px 20px;
     text-align: center;
-    text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: auto;
+    margin: 5px auto;
     cursor: pointer;
+}
+
+#github-login:hover {
+    background-color: #1c2023;
 }
 
 #sign-out {
-    background-color: #f44336; /* Red */
+    background-color: #f44336;
     color: white;
-    border: none;
     padding: 10px 20px;
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
+    border: none;
+    border-radius: 15px;
     font-size: 16px;
-    margin: auto;
+    margin: 0 auto 20px auto;
     cursor: pointer;
 }
 
+#sign-out:hover {
+    background-color: #d32f2f;
+}
+
 #error-message {
-    font-size: 14px;
-    font-weight: bold;
+    font-size: 24px;
+    color: red;
+    text-align: center;
 }
 
 #calendar-app {
@@ -69,19 +87,17 @@ body {
 
 .checkbox-container {
     display: flex;
-    align-items: left;
+    align-items: center;
     margin: 2px 0;
+    font-size: 1em;
 }
 
-.checkbox-label {
-    margin-right: 5px;
-    font-size: 0.8em; /* Smaller font size for labels */
-}
+
 
 /* Responsive adjustments */
-@media (max-width: 600px) {
+@media (max-width: 640px) {
     #calendar-container {
-        grid-template-columns: repeat(7, 1fr); /* Adjust the number of columns for smaller screens */
+        grid-template-columns: repeat(5, 1fr);
     }
 
     .day {

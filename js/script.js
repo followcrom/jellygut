@@ -24,6 +24,22 @@
 
 // document.addEventListener("DOMContentLoaded", signIn);
 
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("/service-worker.js").then(
+      (registration) => {
+        console.log(
+          "ServiceWorker registration successful with scope: ",
+          registration.scope
+        );
+      },
+      (err) => {
+        console.log("ServiceWorker registration failed: ", err);
+      }
+    );
+  });
+}
+
 import {
   getAuth,
   signInWithPopup,
@@ -60,7 +76,8 @@ document.getElementById("sign-out").addEventListener("click", () => {
     })
     .catch((error) => {
       console.error("Error signing out:", error);
-      // Optionally, display sign-out error message
+      document.getElementById("error-message").textContent =
+        "Error. Please try again.";
     });
 });
 

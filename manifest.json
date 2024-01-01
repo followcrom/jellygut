@@ -1,16 +1,41 @@
 {
     "short_name": "Jelly Gut",
     "name": "Jelly Gut 2024",
+    "categories": [
+      "diary",
+      "blog"
+    ],
     "icons": [
       {
-        "src": "favicon.ico",
-        "sizes": "64x64 32x32 24x24 16x16",
-        "type": "image/x-icon"
+        "src": "imgs/favicon.png",
+        "sizes": "16x16",
+        "type": "image/png"
+      },
+      {
+        "src": "imgs/favicon.png",
+        "sizes": "32x32",
+        "type": "image/png"
+      },
+      {
+        "src": "imgs/favicon.png",
+        "sizes": "64x64",
+        "type": "image/png"
+      },
+      {
+        "src": "imgs/favicon.png",
+        "sizes": "256x256",
+        "type": "image/png"
+      },
+      {
+        "src": "imgs/favicon.png",
+        "sizes": "512x512",
+        "type": "image/png"
       }
     ],
     "start_url": "/",
+    "scope": "/",
     "display": "standalone",
-    "theme_color": "#000",
-    "background_color": "#fff"
+    "theme_color": "#000000",
+    "background_color": "#ffffff"
   }
   
