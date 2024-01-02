@@ -1,29 +1,3 @@
-// import {
-//   getAuth,
-//   signInWithEmailAndPassword,
-// } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-
-// function signIn() {
-//   const auth = getAuth();
-
-//   const email = prompt("Please enter your email:");
-//   const password = prompt("Please enter your password:");
-
-//   if (email && password) {
-//     signInWithEmailAndPassword(auth, email, password)
-//       .then((userCredential) => {
-//         console.log("Signed in as:", userCredential.user.email);
-//       })
-//       .catch((error) => {
-//         console.error("Error signing in:", error);
-//       });
-//   } else {
-//     console.log("Authentication canceled.");
-//   }
-// }
-
-// document.addEventListener("DOMContentLoaded", signIn);
-
 import {
   getAuth,
   signInWithPopup,
@@ -41,11 +15,11 @@ document.getElementById("github-login").addEventListener("click", () => {
       document.getElementById("github-login").style.display = "none";
       document.getElementById("sign-out").style.display = "block";
       document.getElementById("calendar-app").style.display = "block";
-      document.getElementById("error-message").textContent = "";
+      document.getElementById("messages").textContent = "";
     })
     .catch((error) => {
       console.error("GitHub Authentication Failed:", error);
-      document.getElementById("error-message").textContent =
+      document.getElementById("messages").textContent =
         "Authentication failed. Please try again.";
     });
 });
@@ -53,33 +27,40 @@ document.getElementById("github-login").addEventListener("click", () => {
 document.getElementById("sign-out").addEventListener("click", () => {
   signOut(auth)
     .then(() => {
-      console.log("User signed out");
       document.getElementById("github-login").style.display = "block";
       document.getElementById("sign-out").style.display = "none";
       document.getElementById("calendar-app").style.display = "none";
+      document.getElementById("messages").textContent = "User signed out.";
+      setTimeout(function () {
+        document.getElementById("messages").textContent = "";
+      }, 2000);
     })
     .catch((error) => {
       console.error("Error signing out:", error);
-      document.getElementById("error-message").textContent =
+      document.getElementById("messages").textContent =
         "Error. Please try again.";
+      setTimeout(function () {
+        document.getElementById("messages").textContent = "";
+      }, 2000);
     });
 });
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
-    console.log("User is signed in.");
     document.getElementById("github-login").style.display = "none";
     document.getElementById("sign-out").style.display = "block";
     document.getElementById("calendar-app").style.display = "block";
+    document.getElementById("messages").textContent = "User is signed in.";
+    setTimeout(function () {
+      document.getElementById("messages").textContent = "";
+    }, 2000);
   } else {
-    console.log("No user is signed in.");
     document.getElementById("github-login").style.display = "block";
     document.getElementById("sign-out").style.display = "none";
     document.getElementById("calendar-app").style.display = "none";
+    document.getElementById("messages").textContent = "No user is signed in.";
   }
 });
-
-// JavaScript months are 0-indexed
 
 import { database } from "./firebase-init.js";
 import {
@@ -137,7 +118,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const calendarEntryRef = ref(database, "CL:2024/" + date);
 
     set(calendarEntryRef, data)
-      .then(() => console.log("Data saved for " + date))
+      .then(() => {
+        console.log("Data saved for " + date);
+        document.getElementById("messages").textContent = "Data saved.";
+        setTimeout(function () {
+          document.getElementById("messages").textContent = "";
+        }, 2000);
+      })
       .catch((error) =>
         console.error("Error saving data for " + date + ":", error)
       );
@@ -151,16 +138,9 @@ document.addEventListener("DOMContentLoaded", function () {
       year: "numeric",
     });
 
-    // First and last day of the month
-    let firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+    // Calendar days
     let lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
 
-    // Placeholder divs for days before the first day of the month
-    // for (let i = 0; i < firstDay.getDay(); i++) {
-    //   calendarContainer.appendChild(document.createElement("div"));
-    // }
-
-    // Calendar days
     for (let day = 1; day <= lastDay.getDate(); day++) {
       let dayDiv = document.createElement("div");
       dayDiv.classList.add("day");
@@ -178,9 +158,14 @@ document.addEventListener("DOMContentLoaded", function () {
         checkbox.type = "checkbox";
         checkbox.classList.add("day-checkbox");
         checkbox.setAttribute("data-label", label);
-        checkbox.id = `checkbox-${date.getFullYear()}-${
+        let checkboxId = `checkbox-${date.getFullYear()}-${
           date.getMonth() + 1
         }-${day}-${label}`;
+        checkbox.id = checkboxId;
+
+        let checkboxLabel = document.createElement("label");
+        checkboxLabel.setAttribute("for", checkboxId);
+        checkboxLabel.textContent = "form label";
 
         let labelElement = document.createElement("span");
         labelElement.textContent = label;
@@ -211,7 +196,6 @@ document.addEventListener("DOMContentLoaded", function () {
     generateCalendar(currentDate);
   });
 
-  //JavaScript's Date object can produce unexpected results when setting a new month. For example, if currentDate is January 31st and you add 1 to the month, JavaScript tries to set the date to February 31st, which doesn't exist. JavaScript then rolls this date over to the next valid date, which would be in March. To prevent this issue, you can adjust the day of currentDate to the first of the month before changing the month. This way, you avoid the edge case of rolling over to a new month with fewer days.
   document.getElementById("next-month").addEventListener("click", function () {
     currentDate.setDate(1); // Set the day to the first of the month
     currentDate.setMonth(currentDate.getMonth() + 1);

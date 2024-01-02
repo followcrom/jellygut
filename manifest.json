@@ -1,6 +1,12 @@
 {
   "short_name": "Jelly Gut",
   "name": "Jelly Gut 2024",
+  "start_url": "/jellygut/",
+  "scope": "/jellygut/",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "description": "Jelly Gut: CL 4 2024",
   "icons": [
     {
       "src": "imgs/favicon.png",
@@ -14,23 +20,14 @@
     },
     {
       "src": "imgs/favicon.png",
-      "sizes": "64x64",
-      "type": "image/png"
-    },
-    {
-      "src": "imgs/favicon.png",
-      "sizes": "256x256",
-      "type": "image/png"
-    },
-    {
-      "src": "imgs/favicon.png",
       "sizes": "512x512",
       "type": "image/png"
     }
   ],
-  "start_url": "/",
-  "scope": "/",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "screenshots": [
+    {
+      "src": "imgs/screenshot_1.jpg",
+      "type": "image/jpeg"
+    }
+  ]
 }

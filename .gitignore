@@ -4,6 +4,9 @@ JellyGut.code-workspace
 # Ignore .env file
 .env
 
+# Ignore version control folder
+vC/
+
 # Ignore docs folder
 docs/
 

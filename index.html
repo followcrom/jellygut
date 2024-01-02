@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JellyGut - CL:2024</title>
 
+    <meta name="author" content="followCrom">
+    <meta name="theme-color" content="#000000">
+    <meta name="keywords" content="JellyGut, followCrom">
+    <meta name="description" content="JellyGut - CL:2024 is a web application with a calendar.">
+
     <link rel="icon" href="imgs/favicon.png" type="image/png">
 
     <!-- CSS -->
@@ -16,25 +21,23 @@
 
     <!-- Import module scripts -->
     <script type="module" src="js/firebase-init.js"></script>
-    <!-- <script type="module" src="js/test-connection.js"></script> -->
 
     <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        media="print" onload="this.media='all'">
 
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Exo+2&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div id="banner">
-        Jelly Gut || C.L. 4 2024
+        Jelly Gut / <i class="fa-solid fa-spray-can-sparkles"></i> / C.L. 4 2024
     </div>
 
     <button id="github-login"><i class="fa-brands fa-github"></i> Login with GitHub</button>
 
-    <div id="error-message"></div>
+    <div id="messages"></div>
 
     <div id="calendar-app" style="display: none;">
         <div id="month-buttons-container">
@@ -50,7 +53,7 @@
     <script>
         if ("serviceWorker" in navigator) {
             window.addEventListener("load", () => {
-                navigator.serviceWorker.register("js/service-worker.js").then(
+                navigator.serviceWorker.register("service-worker.js").then(
                     (registration) => {
                         console.log(
                             "ServiceWorker registration successful with scope: ",
