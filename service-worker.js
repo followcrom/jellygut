@@ -1,4 +1,4 @@
-const CACHE_NAME = "jellygut-cache-v1";
+const CACHE_NAME = "jellygut-cache-v2";
 const PRECACHE_ASSETS = ["/", "/css/styles.css", "/js/script.js"];
 
 // Install event - Precaching
@@ -16,6 +16,7 @@ self.addEventListener("fetch", (event) => {
   event.respondWith(
     caches.match(event.request).then((response) => {
       if (response) {
+        console.log("Found in cache:", event.request.url);
         return response;
       }
       return fetch(event.request);
@@ -30,7 +31,12 @@ self.addEventListener("activate", (event) => {
       return Promise.all(
         keyList.map((key) => {
           if (key !== CACHE_NAME) {
-            return caches.delete(key);
+            console.log(`Deleting old cache: ${key}`);
+            return caches
+              .delete(key)
+              .catch((err) =>
+                console.error(`Error deleting cache: ${key}`, err)
+              );
           }
         })
       );

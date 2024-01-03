@@ -1,3 +1,4 @@
+// Authorisation
 import {
   getAuth,
   signInWithPopup,
@@ -30,7 +31,7 @@ document.getElementById("sign-out").addEventListener("click", () => {
       document.getElementById("github-login").style.display = "block";
       document.getElementById("sign-out").style.display = "none";
       document.getElementById("calendar-app").style.display = "none";
-      document.getElementById("messages").textContent = "User signed out.";
+      document.getElementById("messages").textContent = "User signed out";
       setTimeout(function () {
         document.getElementById("messages").textContent = "";
       }, 2000);
@@ -50,7 +51,7 @@ onAuthStateChanged(auth, (user) => {
     document.getElementById("github-login").style.display = "none";
     document.getElementById("sign-out").style.display = "block";
     document.getElementById("calendar-app").style.display = "block";
-    document.getElementById("messages").textContent = "User is signed in.";
+    document.getElementById("messages").textContent = "User is signed in";
     setTimeout(function () {
       document.getElementById("messages").textContent = "";
     }, 2000);
@@ -58,7 +59,7 @@ onAuthStateChanged(auth, (user) => {
     document.getElementById("github-login").style.display = "block";
     document.getElementById("sign-out").style.display = "none";
     document.getElementById("calendar-app").style.display = "none";
-    document.getElementById("messages").textContent = "No user is signed in.";
+    document.getElementById("messages").textContent = "No user is signed in";
   }
 });
 
@@ -69,13 +70,14 @@ import {
   get,
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 
+// On page load
 document.addEventListener("DOMContentLoaded", function () {
   const calendarContainer = document.getElementById("calendar-container");
   const monthYearLabel = document.getElementById("month-year");
   let currentDate = new Date();
   console.log("Now:", currentDate);
 
-  const checkboxLabels = ["Meditate", "Clean", "Dry", "TV8"];
+  const checkboxLabels = ["Clean", "Dry", "Meditate", "TV8"];
 
   // Fetch data from Firebase and set checkbox states for a given day
   function checkboxStatesFromFirebase(year, month, day) {
@@ -109,9 +111,9 @@ document.addEventListener("DOMContentLoaded", function () {
   // Save data function
   function saveData(date) {
     const data = {
-      Meditate: setCheckboxState(date, "Meditate"),
       Clean: setCheckboxState(date, "Clean"),
       Dry: setCheckboxState(date, "Dry"),
+      Meditate: setCheckboxState(date, "Meditate"),
       TV8: setCheckboxState(date, "TV8"),
     };
 
@@ -119,8 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     set(calendarEntryRef, data)
       .then(() => {
-        console.log("Data saved for " + date);
-        document.getElementById("messages").textContent = "Data saved.";
+        document.getElementById("messages").textContent = "Data saved";
         setTimeout(function () {
           document.getElementById("messages").textContent = "";
         }, 2000);
@@ -130,23 +131,34 @@ document.addEventListener("DOMContentLoaded", function () {
       );
   }
 
+  // Get day name
+  function getDayName(dateStr) {
+    var date = new Date(dateStr);
+    return date.toLocaleDateString("en-UK", { weekday: "short" });
+  }
+
   // Generate calendar
   function generateCalendar(date) {
     calendarContainer.innerHTML = "";
-    monthYearLabel.textContent = date.toLocaleDateString("en-US", {
+    monthYearLabel.textContent = date.toLocaleDateString("en-UK", {
       month: "long",
       year: "numeric",
     });
 
-    // Calendar days
-    let lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+    let year = date.getFullYear();
+    let month = date.getMonth();
+    let lastDay = new Date(year, month + 1, 0);
 
+    // Iterate over each day of the month
     for (let day = 1; day <= lastDay.getDate(); day++) {
       let dayDiv = document.createElement("div");
       dayDiv.classList.add("day");
       dayDiv.id = `day-${date.getFullYear()}-${date.getMonth() + 1}-${day}`;
-      // dayDiv.id example: day-2023-12-15
-      dayDiv.innerHTML = `<div>${day}</div>`;
+
+      // Create a new Date object for each day in the loop
+      let dateForDay = new Date(year, month, day);
+      let dayName = getDayName(dateForDay);
+      dayDiv.innerHTML = `<div>${day} - ${dayName}</div>`;
 
       // Checkbox labels
       checkboxLabels.forEach((label) => {
@@ -175,18 +187,16 @@ document.addEventListener("DOMContentLoaded", function () {
         dayDiv.appendChild(checkboxContainer);
       });
 
+      // Save button
       let saveButton = document.createElement("button");
       saveButton.textContent = "Save";
-      saveButton.onclick = () =>
-        saveData(`${date.getFullYear()}-${date.getMonth() + 1}-${day}`);
+      saveButton.onclick = () => saveData(`${year}-${month + 1}-${day}`);
       dayDiv.appendChild(saveButton);
 
       calendarContainer.appendChild(dayDiv);
 
       // Set checkbox states for this day
-      const year = date.getFullYear();
-      const month = date.getMonth() + 1;
-      checkboxStatesFromFirebase(year, month, day);
+      checkboxStatesFromFirebase(year, month + 1, day);
     }
   }
 

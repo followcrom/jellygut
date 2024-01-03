@@ -1,16 +1,15 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Exo 2', sans-serif;
 }
 
 #banner {
-    font-family: 'Exo 2', sans-serif;
     background-color: #0f4c81;
     color: white; 
     text-align: center;
     padding: 10px;
-    font-size: 2em;
+    font-size: 3em;
     margin-bottom: 10px;
 }
 
@@ -23,12 +22,12 @@ body {
     text-align: center;
     display: inline-block;
     font-size: 16px;
-    margin: 5px auto;
+    margin: 15px auto;
     cursor: pointer;
 }
 
 #github-login:hover {
-    background-color: #1c2023;
+    background-color: #0f4c81;
 }
 
 #sign-out {
@@ -55,6 +54,16 @@ body {
     text-align: center;
 }
 
+#month-buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+#month-year {
+    text-align: center;
+}
+
 #calendar-app {
     max-width: 100%;
     margin: 0 auto;
@@ -63,19 +72,8 @@ body {
 
 #calendar-container {
     display: grid;
-    grid-template-columns: repeat(7, 1fr); /* 7 days for a week */
+    grid-template-columns: repeat(7, 1fr); /* 7 days a week, equally divided */
     gap: 5px;
-    text-align: center;
-}
-
-#month-buttons-container {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 10px;
-}
-
-#month-year {
     text-align: center;
 }
 
@@ -94,24 +92,22 @@ body {
     font-size: 1em;
 }
 
-
-
 /* Responsive adjustments */
 @media (max-width: 640px) {
+    #banner {
+        font-size: 1.8em;
+    }
+
     #calendar-container {
         grid-template-columns: repeat(5, 1fr);
     }
 
     .day {
-        padding: 3px;
+        padding: 2px;
     }
 
     .checkbox-container {
         flex-direction: column;
         align-items: flex-start;
-    }
-
-    .checkbox-label {
-        margin-bottom: 2px;
     }
 }
