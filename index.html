@@ -4,13 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jelly Gut - CL:2024</title>
-    <meta name="theme-color" content="#0f4c81">
+    <title>JellyGut - CL:2024</title>
 
     <meta name="author" content="followCrom">
-    <meta name="description" content="Jelly Gut is a web application with a calendar.">
-    <meta name="keywords" content="Jelly Gut, followCrom">
-
+    <meta name="theme-color" content="#000000">
+    <meta name="keywords" content="JellyGut, followCrom">
+    <meta name="description" content="JellyGut - CL:2024 is a web application with a calendar.">
 
     <link rel="icon" href="imgs/favicon.png" type="image/png">
 
@@ -29,24 +28,6 @@
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Exo+2&display=swap" rel="stylesheet">
-
-    <!-- reCAPTCHA -->
-    <script src="https://www.google.com/recaptcha/api.js"></script>
-
-    <script>
-        function onSubmit(token) {
-            // Show the GitHub login button when the reCAPTCHA token is generated
-            if (token) {
-                document.getElementById("calendar-app").style.display = "block";
-                document.getElementById("github-login").style.display = "block"; // Show the GitHub login button
-            } else {
-                document.getElementById("messages").innerText = "Suspicious activity detected.";
-            }
-        }
-    </script>
-
-
-
 </head>
 
 <body>
@@ -54,14 +35,9 @@
         Jelly Gut / <i class="fa-solid fa-spray-can-sparkles"></i> / C.L. 4 2024
     </div>
 
+    <button id="github-login"><i class="fa-brands fa-github"></i> Login with GitHub</button>
+
     <div id="messages"></div>
-
-    <button class="g-recaptcha" data-sitekey="6Le8m1cpAAAAALs83p78tiNrPN4TlJI-mRWTC_3r" data-callback='onSubmit'
-        data-action='submit'>Hi Human!</button>
-
-    <button id="github-login" style="display: none;"><i class="fa-brands fa-github"></i> Login with GitHub</button>
-
-
 
     <div id="calendar-app" style="display: none;">
         <div id="month-buttons-container">
