@@ -13,6 +13,25 @@ body {
     margin-bottom: 10px;
 }
 
+button.g-recaptcha {
+    margin: auto;
+    background-color: #0f4c81; /* Green background */
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    padding: 10px 20px; /* Some padding */
+    text-align: center; /* Centered text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer; /* Mouse pointer on hover */
+    transition-duration: 0.4s; /* Transition effects */
+}
+
+button.g-recaptcha:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
 #github-login {
     background-color: #24292e;
     color: white;

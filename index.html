@@ -29,6 +29,24 @@
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Exo+2&display=swap" rel="stylesheet">
+
+    <!-- reCAPTCHA -->
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+
+    <script>
+        function onSubmit(token) {
+            // Show the GitHub login button when the reCAPTCHA token is generated
+            if (token) {
+                document.getElementById("calendar-app").style.display = "block";
+                document.getElementById("github-login").style.display = "block"; // Show the GitHub login button
+            } else {
+                document.getElementById("messages").innerText = "Suspicious activity detected.";
+            }
+        }
+    </script>
+
+
+
 </head>
 
 <body>
@@ -38,7 +56,11 @@
 
     <div id="messages"></div>
 
-    <button id="github-login"><i class="fa-brands fa-github"></i> Login with GitHub</button>
+    <button class="g-recaptcha" data-sitekey="6Le8m1cpAAAAALs83p78tiNrPN4TlJI-mRWTC_3r" data-callback='onSubmit'
+        data-action='submit'>Hi Human!</button>
+
+    <button id="github-login" style="display: none;"><i class="fa-brands fa-github"></i> Login with GitHub</button>
+
 
 
     <div id="calendar-app" style="display: none;">
