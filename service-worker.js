@@ -1,13 +1,16 @@
 const CACHE_NAME = "jellygut-cache-v2";
-const PRECACHE_ASSETS = ["/", "/css/styles.css", "/js/script.js"];
+const PRECACHE_ASSETS = ["/index.html", "/css/styles.css", "/js/script.js"];
 
 // Install event - Precaching
 self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      console.log("Opened cache");
-      return cache.addAll(PRECACHE_ASSETS);
-    })
+    caches
+      .open(CACHE_NAME)
+      .then((cache) => cache.addAll(PRECACHE_ASSETS))
+      .catch((error) => {
+        console.error("Error in caching during install", error);
+        throw error; // Rethrow to ensure the service worker installation fails.
+      })
   );
 });
 

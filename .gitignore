@@ -10,5 +10,8 @@ vC/
 # Ignore docs folder
 docs/
 
+# Ignore Images folder
+Images/
+
 # Ignore test-connection.js
 js/test-connection.js
