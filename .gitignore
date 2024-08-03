@@ -15,3 +15,6 @@ Images/
 
 # Ignore test-connection.js
 js/test-connection.js
+
+# Ignore analysis dir
+analysis/
