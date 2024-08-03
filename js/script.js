@@ -77,12 +77,12 @@ document.addEventListener("DOMContentLoaded", function () {
   let currentDate = new Date();
   console.log("Now:", currentDate);
 
-  const checkboxLabels = ["Clean", "Dry", "Meditate", "TV8"];
+  const checkboxLabels = ["Clean", "Dry", "Work", "Out"];
 
   // Fetch data from Firebase and set checkbox states for a given day
   function checkboxStatesFromFirebase(year, month, day) {
     const dateStr = `${year}-${month}-${day}`;
-    const dayRef = ref(database, `CL:2024/${dateStr}`);
+    const dayRef = ref(database, `NORF:2024/${dateStr}`);
 
     get(dayRef)
       .then((snapshot) => {
@@ -113,11 +113,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const data = {
       Clean: setCheckboxState(date, "Clean"),
       Dry: setCheckboxState(date, "Dry"),
-      Meditate: setCheckboxState(date, "Meditate"),
-      TV8: setCheckboxState(date, "TV8"),
+      Work: setCheckboxState(date, "Work"),
+      Out: setCheckboxState(date, "Out"),
     };
 
-    const calendarEntryRef = ref(database, "CL:2024/" + date);
+    const calendarEntryRef = ref(database, "NORF:2024/" + date);
 
     set(calendarEntryRef, data)
       .then(() => {

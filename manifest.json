@@ -1,12 +1,12 @@
 {
-  "short_name": "Jelly Gut",
-  "name": "Jelly Gut 2024",
+  "short_name": "JG Norf",
+  "name": "Jelly Gut North 2024",
   "start_url": "/jellygut/",
   "scope": "/jellygut/",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff",
-  "description": "Jelly Gut: CL 4 2024",
+  "description": "Jelly Gut: RL 4 2024",
   "icons": [
     {
       "src": "imgs/favicon.png",
