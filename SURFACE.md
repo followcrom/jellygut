@@ -2,15 +2,18 @@
 
 <div style="display: flex; align-items: center;">
   <img src="jelly-chef.png" alt="Jelly Chef" width="400" style="margin-right: 10px;"/>
-  <span style="font-size: 1.4rem;"><b>Version 2</b> of the Jelly Gut app is a new version of the app for the North. It has a new set of metrics and a new database path.
-  <br><br><b>Both versions</b> of the app are in the same branch. This is so we can use GitHub Pages to host both versions from different subdirectories within the same branch.
-  <br><br>
-  <b>Version 1</b> can also be found in the main branch in the dir <i>version-1</i>.</span>
+  <span style="font-size: 1.4rem; display: inline-block;">
+    <b>Version 2</b> of the Jelly Gut app is a new version for the North. It has a new set of metrics and a new database path.
+    <br><br>
+    <b>Both versions</b> of the app are in the same branch. This is so we can use GitHub Pages to host both versions from different subdirectories within the same branch.
+    <br><br>
+    <b>Version 1</b> can also be found in the main branch in the dir <i>version-1</i>.
+  </span>
 </div>
 
 ## GitHub Pages 🖥️
 
-### Note: <u>Pushing to the main branch will automatically update GitHub Pages</u>
+### Note: <u>Pushing to the main branch will automatically update GitHub Pages!</u>
 
 GitHub Pages natively supports only one branch per repository for publishing. Having two versions of the app requires serving both versions from different subdirectories within the same branch.
 
@@ -24,7 +27,7 @@ On the GitHub repository, navigate to the _Settings_ tab.
 
 On the left sidebar, click the _Pages_ section.
 
-# Let's Build! 🏗️ 🏢
+# 🏗️ Let's Build!  🏢
 
 ## Development Environment 👨🏻‍💻
 
@@ -44,7 +47,7 @@ Change references in `script.js` to the new database path "NORF:2024/".
 
 ### 🆕 Removed analytics
 
-Removed Google Analytics code from `firebase-init.js`. It was causing an error in the console. It is still in version-1.
+Removed Google Analytics code from `firebase-init.js`. It was causing an error in the console. It is still in _version-1_.
 
 ### 🆕 Update `manifest.json`
 
@@ -89,7 +92,7 @@ Keep the rules for the **CL:2024** path and add new rules for new database path 
 }
 ```
 
-## Service Worker 👨‍🔧
+## Service Worker 👨‍🔧🚽
 
 A service worker is a key requirement for a web application to be installable as a Progressive Web App (PWA). I have kept the service worker from the previous version, but a minimal service worker without those caching features will still ensure the app is installable as a PWA.
 
