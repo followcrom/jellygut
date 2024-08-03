@@ -13,83 +13,35 @@ body {
     margin-bottom: 10px;
 }
 
-#github-login {
-    background-color: #24292e;
-    color: white;
-    border: none;
-    border-radius: 15px;
-    padding: 10px 20px;
+#versions {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
     text-align: center;
+    font-size: 2rem;
+}
+
+#versions ul {
+    list-style-type: circle;
     display: inline-block;
-    font-size: 16px;
-    margin: 15px auto;
-    cursor: pointer;
+    margin-left: 10px;
+    padding-left: 0; /* Remove default padding */
 }
 
-#github-login:hover {
-    background-color: #0f4c81;
+#versions li {
+    margin-bottom: 25px;
+
 }
 
-#sign-out {
-    background-color: #f44336;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    border: none;
-    border-radius: 15px;
-    font-size: 16px;
-    margin: 0 auto 20px auto;
-    cursor: pointer;
+#versions a {
+    color: #000;
+    text-decoration: underline;
+    padding-right: 20px;
 }
 
-#sign-out:hover {
-    background-color: #d32f2f;
-}
-
-#messages {
-    margin: auto;
-    font-size: 24px;
-    font-weight: bold;
-    color: #0f4c81;
-    text-align: center;
-}
-
-#month-buttons-container {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-#month-year {
-    text-align: center;
-}
-
-#calendar-app {
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 10px;
-}
-
-#calendar-container {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr); /* 7 days a week, equally divided */
-    gap: 5px;
-    text-align: center;
-}
-
-.day {
-    border: 1px solid #ddd;
-    padding: 5px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.checkbox-container {
-    display: flex;
-    align-items: center;
-    margin: 2px 0;
-    font-size: 1em;
+#versions a:hover {
+    color: green;
+    text-decoration: none;
 }
 
 /* Responsive adjustments */
@@ -98,16 +50,7 @@ body {
         font-size: 1.8em;
     }
 
-    #calendar-container {
-        grid-template-columns: repeat(5, 1fr);
-    }
-
-    .day {
-        padding: 2px;
-    }
-
-    .checkbox-container {
-        flex-direction: column;
-        align-items: flex-start;
+    #versions {
+        font-size: 1.5rem;
     }
 }

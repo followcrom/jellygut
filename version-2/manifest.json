@@ -1,8 +1,8 @@
 {
   "short_name": "JG Norf",
   "name": "Jelly Gut North 2024",
-  "start_url": "/jellygut/",
-  "scope": "/jellygut/",
+  "start_url": "/jellygut-v2/",
+  "scope": "/jellygut-v2/",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff",

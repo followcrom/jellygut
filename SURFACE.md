@@ -1,42 +1,36 @@
-# Jelly Gut Up Norf!
+# Jelly Gut Up Norf! (Version 2)
 
-![Jelly Chef](imgs/jelly-chef.png)
+<div style="display: flex; align-items: center;">
+  <img src="jelly-chef.png" alt="Jelly Chef" width="280" style="margin-right: 10px;"/>
+  <span><b>Version 2</b> of the Jelly Gut app is a new version of the app for the North. It has a new set of metrics and a new database path.
+  <br><br><b>Both versions</b> of the app are in the same branch. This is so we can use GitHub Pages to host both versions from different subdirectories within the same branch.
+  <br><br>
+  <b>Version 1</b> can also be found in the main branch in the dir <i>version-1</i>.</span>
+</div>
+
+## GitHub Pages
+
+GitHub Pages natively supports only one branch or folder per repository for publishing. Having two versions of the app requires serving both versions from different subdirectories within the same branch.
+
+V1 is hosted on GitHub Pages at: https://followcrom.github.io/jellygut/version-1/
+
+V2 is hosted on GitHub Pages at: https://followcrom.github.io/jellygut/version-2/
+
+### Update GitHub Pages Settings
+
+On the GitHub repository, navigate to the _Settings_ tab.
+
+On the left sidebar, click the _Pages_ section.
+
+# Let's Build! 🚀
 
 ## Development Environment
 
 Run `index.html` with Live Server in VSCode.
 
-http://localhost:5500/
+http://localhost:5500/version-2/
 
 Sign in wth GitHub.
-
-## GitHub Pages
-
-The app is hosted on GitHub Pages at: https://followcrom.github.io/jellygut/
-
-### Create a new branch for the new version of the app
-
-```bash
-git checkout -b SURFACE
-
-git add .
-
-git commit -m "New version of Jelly Gut for the North"
-
-git push origin SURFACE
-```
-
-### Update GitHub Pages Settings
-
-On the GitHub repository, navigate to the Settings Tab.
-
-On the left sidebar, click the Pages section.
-
-Under the "GitHub Pages" section, you’ll find a source dropdown.
-Change the Source to Your New Branch:
-
-Select your new branch (new-version) from the dropdown menu. If you're deploying from a folder like /docs, make sure to select the correct folder if necessary.
-Save Your Changes.
 
 ## Changes for 'JG Norf'
 
