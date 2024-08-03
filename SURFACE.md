@@ -1,15 +1,19 @@
 # 🪼 Jelly Gut Up Norf! (Version 2) 🍮
 
-<div style="display: flex;">
-  <img align="left" src="jelly-chef.png" alt="Jelly Chef" width="400" style="margin-right: 10px;"/>
-  <span style="font-size: 1.4rem;">
-    <b>Version 2</b> of the Jelly Gut app is a new version for the North. It has a new set of metrics and a new database path.
-    <br><br>
-    <b>Both versions</b> of the app are in the same branch. This is so we can use GitHub Pages to host both versions from different subdirectories within the same branch.
-    <br><br>
-    <b>Version 1</b> can also be found in the main branch in the dir <i>version-1</i>.
-  </span>
-</div>
+<table>
+  <tr>
+    <td>
+      <img src="jelly-chef.png" alt="Jelly Chef" width="600" style="margin-right: 10px;"/>
+    </td>
+    <td style="font-size: 1.4rem;">
+      <b>Version 2</b> of the Jelly Gut app is a new version for the North. It has a new set of metrics and a new database path.
+      <br><br>
+      <b>Both versions</b> of the app are in the same branch. This is so we can use GitHub Pages to host both versions from different subdirectories within the same branch.
+      <br><br>
+      <b>Version 1</b> can also be found in the main branch in the dir <i>version-1</i>.
+    </td>
+  </tr>
+</table>
 
 ## GitHub Pages 🖥️
 
