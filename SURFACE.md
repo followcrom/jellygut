@@ -1,23 +1,66 @@
 # Jelly Gut Up Norf!
 
-Run with Live Server in VSCode.
+![Jelly Chef](imgs/jelly-chef.png)
+
+## Development Environment
+
+Run `index.html` with Live Server in VSCode.
 
 http://localhost:5500/
 
-## Summary of Changes
+Sign in wth GitHub.
 
-New Metrics: Updated checkboxLabels array to ["Clean", "Dry", "Work", "Out"].
+## GitHub Pages
 
-Update manifest.json
+The app is hosted on GitHub Pages at: https://followcrom.github.io/jellygut/
+
+### Create a new branch for the new version of the app
+
+```bash
+git checkout -b SURFACE
+
+git add .
+
+git commit -m "New version of Jelly Gut for the North"
+
+git push origin SURFACE
+```
+
+### Update GitHub Pages Settings
+
+On the GitHub repository, navigate to the Settings Tab.
+
+On the left sidebar, click the Pages section.
+
+Under the "GitHub Pages" section, you’ll find a source dropdown.
+Change the Source to Your New Branch:
+
+Select your new branch (new-version) from the dropdown menu. If you're deploying from a folder like /docs, make sure to select the correct folder if necessary.
+Save Your Changes.
+
+## Changes for 'JG Norf'
+
+### New Metrics
+
+Updated `checkboxLabels` array in `script.js` to ["Clean", "Dry", "Work", "Out"].
+
+### Database Path
+
+Change references in `script.js` to the new database path "NORF:2024/".
+
+### Update `manifest.json`
+
 Make sure the new version has a different name, short_name, and scope. This will help in distinguishing it from the previous version.
 
-Database Path: Changed references to the new database path "NORF:2024/".
+### Modify `service-worker.js`
 
- Modify service-worker.js
-Ensure that the service worker for the new version has a different cache name to avoid conflicts with the old version.
-const CACHE_NAME = "jellygut-cache-norf-v1";
+Ensure that the service worker has a different cache name to avoid conflicts with the old version.
 
-Update the Firebase Realtime Database rules to accommodate the new metrics and the new database path. keep the rules for the CL:2024 path and add new rules for your new database path NORF:2024. Here's how you can do it:
+`const CACHE_NAME = "jellygut-cache-norf-v1";`
+
+### Firebase Realtime Database
+
+Keep the rules for the **CL:2024** path and add new rules for new database path **NORF:2024**.
 
 ```json
 {
@@ -57,4 +100,21 @@ Update the Firebase Realtime Database rules to accommodate the new metrics and t
 
 ## Service Worker
 
-a service worker is a key requirement for a web application to be installable as a Progressive Web App (PWA).
+A service worker is a key requirement for a web application to be installable as a Progressive Web App (PWA). I have kept the service worker from the previous version, but a minimal service worker without those caching features will still ensure the app is installable as a PWA.
+
+### Minimal Service Worker
+
+```javascript
+self.addEventListener('install', (event) => {
+  console.log('Service Worker installing.');
+  // Perform install steps if necessary
+});
+
+self.addEventListener('activate', (event) => {
+  console.log('Service Worker activating.');
+});
+
+self.addEventListener('fetch', (event) => {
+  // This is a simple no-op fetch event handler
+});
+```
