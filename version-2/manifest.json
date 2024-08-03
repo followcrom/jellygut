@@ -23,11 +23,5 @@
       "sizes": "512x512",
       "type": "image/png"
     }
-  ],
-  "screenshots": [
-    {
-      "src": "imgs/screenshot_1.jpg",
-      "type": "image/jpeg"
-    }
   ]
 }

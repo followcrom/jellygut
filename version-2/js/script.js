@@ -158,7 +158,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // Create a new Date object for each day in the loop
       let dateForDay = new Date(year, month, day);
       let dayName = getDayName(dateForDay);
-      dayDiv.innerHTML = `<div>${day} - ${dayName}</div>`;
+      dayDiv.innerHTML = `<div><strong>${day} - ${dayName}</strong></div>`;
 
       // Checkbox labels
       checkboxLabels.forEach((label) => {
