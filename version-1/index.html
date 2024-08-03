@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jelly Gut - CL:2024</title>
+    <meta name="theme-color" content="#0f4c81">
+
+    <meta name="author" content="followCrom">
+    <meta name="description" content="Jelly Gut is a web application with a calendar.">
+    <meta name="keywords" content="Jelly Gut, followCrom">
+
+
+    <link rel="icon" href="imgs/favicon.png" type="image/png">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Import module scripts -->
+    <script type="module" src="js/firebase-init.js"></script>
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        media="print" onload="this.media='all'">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="banner">
+        Jelly Gut / <i class="fa-solid fa-spray-can-sparkles"></i> / C.L. 4 2024
+    </div>
+
+    <div id="messages"></div>
+
+    <button id="github-login"><i class="fa-brands fa-github"></i> Login with GitHub</button>
+
+
+    <div id="calendar-app" style="display: none;">
+        <div id="month-buttons-container">
+            <button id="prev-month">Previous</button>
+            <button id="next-month">Next</button>
+        </div>
+        <h1 id="month-year"></h1>
+        <div id="calendar-container"></div>
+    </div>
+
+    <button id="sign-out" style="display: none;"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</button>
+
+    <script>
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker.register("service-worker.js").then(
+                    (registration) => {
+                        console.log(
+                            "ServiceWorker registration successful with scope: ",
+                            registration.scope
+                        );
+                    },
+                    (err) => {
+                        console.log("ServiceWorker registration failed: ", err);
+                    }
+                );
+            });
+        }
+    </script>
+
+    <script type="module" src="js/script.js"></script>
+
+</body>
+
+</html>
