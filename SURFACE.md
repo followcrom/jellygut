@@ -1,8 +1,8 @@
 # 🪼 Jelly Gut Up Norf! (Version 2) 🍮
 
-<div style="display: flex; align-items: center;">
-  <img src="jelly-chef.png" alt="Jelly Chef" width="400" style="margin-right: 10px;"/>
-  <span style="font-size: 1.4rem; display: inline-block;">
+<div style="display: flex;">
+  <img align="left" src="jelly-chef.png" alt="Jelly Chef" width="400" style="margin-right: 10px;"/>
+  <span style="font-size: 1.4rem;">
     <b>Version 2</b> of the Jelly Gut app is a new version for the North. It has a new set of metrics and a new database path.
     <br><br>
     <b>Both versions</b> of the app are in the same branch. This is so we can use GitHub Pages to host both versions from different subdirectories within the same branch.
@@ -51,7 +51,18 @@ Removed Google Analytics code from `firebase-init.js`. It was causing an error i
 
 ### 🆕 Update `manifest.json`
 
-Make sure the new version has a different name, short_name, and scope. This will help in distinguishing it from the previous version.
+The new version should have a `different name` and `short_name` to help in distinguishing it from the previous version. It must have a different `start_url` and `scope` to ensure it is a separate PWA.
+
+- start_url: This is the URL that will be loaded when the app is launched. It should point to the subdirectory where the app is located.
+
+- scope: This defines the navigation scope of the PWA. It restricts what URLs can be opened within the app. This should also be set to the subdirectory where the app is located so that any link clicked within the app that points outside this scope will open in the browser instead of within the PWA.
+
+```json
+{
+  "start_url": "/jellygut/version-2/",
+  "scope": "/jellygut/version-2/",
+}
+```
 
 ### 🆕 Modify `service-worker.js`
 

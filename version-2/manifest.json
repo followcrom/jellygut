@@ -1,10 +1,10 @@
 {
-  "short_name": "JG Norf",
+  "short_name": "Jelly Nut",
   "name": "Jelly Gut R.L 2024",
-  "start_url": "/jellygut-v2/",
-  "scope": "/jellygut-v2/",
+  "start_url": "/jellygut/version-2/",
+  "scope": "/jellygut/version-2/",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#50809e",
   "background_color": "#ffffff",
   "description": "Jelly Gut: Right Living 4 2024",
   "icons": [

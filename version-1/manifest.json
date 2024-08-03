@@ -1,8 +1,8 @@
 {
   "short_name": "Jelly Gut",
   "name": "Jelly Gut 2024",
-  "start_url": "/jellygut/",
-  "scope": "/jellygut/",
+  "start_url": "/jellygut/version-1/",
+  "scope": "/jellygut/version-1/",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff",
