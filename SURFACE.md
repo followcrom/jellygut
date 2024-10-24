@@ -1,6 +1,6 @@
 # 🪼 Jelly Gut Up Norf! (Version 2) 🍮
 
-<table>
+<table border="0">
   <tr>
     <td>
       <img src="jelly-chef.png" alt="Jelly Chef" width="600" style="margin-right: 10px;"/>
