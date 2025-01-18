@@ -1,4 +1,4 @@
-const CACHE_NAME = "jellygut-cache-norf-v1";
+const CACHE_NAME = "jellygut-cache-norf-v2";
 const PRECACHE_ASSETS = ["/index.html", "/css/styles.css", "/js/script.js"];
 
 // Install event - Precaching
