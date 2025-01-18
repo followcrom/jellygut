@@ -111,6 +111,8 @@ Keep the rules for the **CL:2024** path and add new rules for new database path 
 
 A service worker is a key requirement for a web application to be installable as a Progressive Web App (PWA). I have kept the service worker from the previous version, but a minimal service worker without those caching features will still ensure the app is installable as a PWA.
 
+The cache name should be unique to each version of the app. This is to ensure that the cache for one version does not conflict with the cache for another version.
+
 ### Minimal Service Worker
 
 ```javascript
