@@ -39,6 +39,41 @@ Run `index.html` with Live Server in VSCode.
 
 http://localhost:5500/version-2/
 
+## Updates 📝
+
+When you make changes, you'll need to:
+
+1. Increment the service worker cache version name (e.g., change to "jellygut-cache-norf-v3")
+
+2. Redeploy the updated service worker
+
+If you don't update the service worker, users will continue to see the cached (old) version of the site.
+
+**Alternative approach**: If you want HTML changes to appear immediately without updating the service worker every time, you could modify your strategy to use network-first for HTML files specifically:
+
+```javascript
+self.addEventListener("fetch", (event) => {
+  // Use network-first for HTML requests
+  if (event.request.destination === 'document') {
+    event.respondWith(
+      fetch(event.request).catch(error => {
+        return caches.match(event.request);
+      })
+    );
+  } else {
+    // Use cache-first for other assets
+    event.respondWith(
+      caches.match(event.request).then((response) => {
+        if (response) {
+          return response;
+        }
+        return fetch(event.request);
+      })
+    );
+  }
+});
+```
+
 ## Changes for 'J.G. Norf' 💫
 
 ### 🆕 New Metrics
