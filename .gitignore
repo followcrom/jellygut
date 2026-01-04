@@ -1,2 +1,3 @@
 # Ignore analysis dir
 analysis/
+.vscode/settings.json

@@ -84,6 +84,8 @@ Updated `checkboxLabels` array in `script.js` to ["Clean", "Dry", "Work", "Out"]
 
 Change references in `script.js` to the new database path "NORF:2024/".
 
+N.B: The name "NORF:2024" is just a label - it doesn't control or restrict what dates you can store. The database structure itself is date-agnostic. Your date keys (in YYYY-M-D format) are what actually determine the timeline.
+
 ### 🆕 Removed analytics
 
 Removed Google Analytics code from `firebase-init.js`. It was causing an error in the console. It is still in _version-1_.
